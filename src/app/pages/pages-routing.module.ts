@@ -5,6 +5,7 @@ import { PagesComponent } from './pages.component';
 import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 import { TherapistsComponent } from './therapists/therapists.component';
+import { CoursesComponent } from './courses/courses.component';
 
 const routes: Routes = [{
   path: '',
@@ -17,6 +18,10 @@ const routes: Routes = [{
     {
       path: "therapists",
       component: TherapistsComponent
+    },
+    {
+      path: 'courses',
+      component: CoursesComponent
     },
     {
       path: 'ui-features',

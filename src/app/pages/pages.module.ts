@@ -7,6 +7,8 @@ import { ECommerceModule } from './e-commerce/e-commerce.module';
 import { PagesRoutingModule } from './pages-routing.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { TherapistsModule } from './therapists/therapists.module';
+import { CoursesModule } from './courses/courses.module';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   imports: [
@@ -15,10 +17,12 @@ import { TherapistsModule } from './therapists/therapists.module';
     NbMenuModule,
     ECommerceModule,
     MiscellaneousModule,
-    TherapistsModule
+    TherapistsModule,
+    CoursesModule
   ],
   declarations: [
     PagesComponent,
+    LoginComponent,
   ],
 })
 export class PagesModule {

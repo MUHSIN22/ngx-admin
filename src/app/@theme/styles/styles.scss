@@ -34,3 +34,8 @@
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+
+.navigation .link nb-icon {
+  display: none !important;
+}
+

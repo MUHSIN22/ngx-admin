@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { NbToastrService } from '@nebular/theme';
 import { LocalDataSource } from 'ng2-smart-table';
-import { SmartTableData } from '../../@core/data/smart-table';
 import { HttpService } from '../../services/http.service';
-import { NbToastrService, NbComponentStatus } from '@nebular/theme';
+
 @Component({
-  selector: 'ngx-therapists',
-  templateUrl: './therapists.component.html',
-  styleUrls: ['./therapists.component.scss']
+  selector: 'ngx-courses',
+  templateUrl: './courses.component.html',
+  styleUrls: ['./courses.component.scss']
 })
-export class TherapistsComponent  {
+export class CoursesComponent implements OnInit {
+
   public therapists:any;
   public page:number  = 1
   public collectionSize:number = 0

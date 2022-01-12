@@ -21,6 +21,9 @@ import {
   NbWindowModule,
 } from '@nebular/theme';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NbAuthModule, NbPasswordAuthStrategy } from '@nebular/auth';
+import { environment } from '../environments/environment.prod';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
@@ -38,6 +41,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NbChatModule.forRoot({
       messageGoogleMapKey: 'AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY',
     }),
+    FormsModule,
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
     NgbModule,

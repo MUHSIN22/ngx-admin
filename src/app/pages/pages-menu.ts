@@ -13,6 +13,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/therapists',
   },
   {
+    title: 'Courses',
+    icon: 'book-outline',
+    link: '/pages/courses'
+  },
+  {
     title: 'FEATURES',
     group: true,
   },
@@ -82,18 +87,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
       {
         title: 'Login',
         link: '/auth/login',
-      },
-      {
-        title: 'Register',
-        link: '/auth/register',
-      },
-      {
-        title: 'Request Password',
-        link: '/auth/request-password',
-      },
-      {
-        title: 'Reset Password',
-        link: '/auth/reset-password',
       },
     ],
   },
