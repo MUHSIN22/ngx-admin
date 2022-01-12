@@ -28,29 +28,37 @@ export class CoursesComponent implements OnInit {
       display: false
     },
     columns: {
-      name: {
-        title: 'Name',
+      course_title: {
+        title: 'Course Title',
         type: 'string',
         filter: false
       },
       email: {
-        title: 'Email',
-        type: 'string',
+        title: 'Instructor',
+        type: 'html',
         filter: false,
-        valuePrepareFunction : (email) => {
-          return email ? email : "No email"
+        
+      },
+      photo: {
+        title: 'Thumbnail',
+        type: 'html',
+        filter: false,
+        valuePrepareFunction : (photo) => {
+          return `<a href="${photo}">View Thumbnail</a>`
         }
       },
-      phone: {
-        title: 'Mobile',
-        type: 'string',
-        filter: false,
-        valuePrepareFunction: (phone) => {
-          return phone ? phone : "No phone"
-        }
+      offer_price:{
+        title: 'Discounted Price',
+        type: 'number',
+        filter: false
+      },
+      original_price:{
+        title: 'Price',
+        type: 'number',
+        filter: false
       },
       created_at: {
-        title: 'Date',
+        title: 'Created At',
         type: 'string',
         filter: false,
         valuePrepareFunction: (date) =>{
@@ -74,11 +82,8 @@ export class CoursesComponent implements OnInit {
   getCourses = () => {
     this.httpService.getCourses(this.page).subscribe((res:any) => {
       if(res.status === "ok"){
-        console.log(res);
-        
         this.collectionSize = res.msg.total
         this.source.load(res.msg.courses)
-        
       }
     })
   }
@@ -94,12 +99,23 @@ export class CoursesComponent implements OnInit {
       switch(event.action){
         case "approve":
           this.httpService.approveCourses(event.data._id).subscribe((res:any) => {
-            this.getCourses()
-            this.toastr.success(res.msg,"Message")
+            if(res.status === 'ok'){
+              this.getCourses()
+              this.toastr.success(res.msg,"Message")
+            }else{
+              this.toastr.danger(res.msg,"Error")
+            }
           })
           break;
         case "deny":
-  
+          this.httpService.rejectCourse(event.data._id).subscribe((res:any) => {
+            if(res.status === 'ok'){
+              this.getCourses()
+              this.toastr.success(res.msg,"Message")
+            }else{
+              this.toastr.danger(res.msg,"Error")
+            }
+          })
           break;
         default:
           break;

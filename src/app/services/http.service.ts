@@ -41,6 +41,10 @@ export class HttpService {
   }
 
   approveCourses = (courseID:any):Observable<any> => {
-    return this.http.post<any>(`${this.apiUrl}/approve-courses/${courseID}`,{})
+    return this.http.post<any>(`${this.apiUrl}/approve-course/${courseID}`,{})
+  }
+
+  rejectCourse = (courseID:any):Observable<any> => {
+    return this.http.post<any>(`${this.apiUrl}/reject-course/${courseID}`,{})
   }
 }
