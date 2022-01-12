@@ -1,9 +1,9 @@
 <div class="row">
   <div class="col-md-6">
-    <ngx-progress-section></ngx-progress-section>
+    <ngx-progress-section [progressInfoData]="statics"></ngx-progress-section>
   </div>
   <div class="col-md-6">
-    <ngx-progress-section></ngx-progress-section>
+    <ngx-progress-section [progressInfoData]="courseCounts"></ngx-progress-section>
   </div>
 </div>
 
@@ -11,12 +11,19 @@
   <div class="col-xxl-7">
     <nb-card>
       <nb-card-header>
-        Smart Table
+        Transactions
       </nb-card-header>
     
       <nb-card-body>
-        <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
+        <ng2-smart-table [settings]="transactionSettings" [source]="transactions" >
         </ng2-smart-table>
+        <ngb-pagination 
+          [collectionSize]="totalTransactions" 
+          [(page)]="transactionPage" 
+          aria-label="Default pagination" 
+          (pageChange)="onTransactionPageChange($event)"
+          style="display:flex;justify-content:center;margin-top: 1rem;"
+        ></ngb-pagination>
       </nb-card-body>
     </nb-card> 
   </div>
@@ -27,7 +34,7 @@
       </nb-card-header>
     
       <nb-card-body>
-        <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
+        <ng2-smart-table [settings]="settings" [source]="source" >
         </ng2-smart-table>
       </nb-card-body>
     </nb-card> 

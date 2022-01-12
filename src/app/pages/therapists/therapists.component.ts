@@ -92,12 +92,23 @@ export class TherapistsComponent  {
       switch(event.action){
         case "approve":
           this.httpService.approveTherapists(event.data._id).subscribe((res:any) => {
-            this.getTherapists()
-            this.toastr.success(res.msg,"Message")
+            if(res.status === 'ok'){
+              this.getTherapists()
+              this.toastr.success(res.msg,"Message")
+            }else{
+              this.toastr.danger(res.msg,"Error")
+            }
           })
           break;
         case "deny":
-  
+          this.httpService.rejectTherapists(event.data._id).subscribe((res:any) => {
+            if(res.status === 'ok'){
+              this.getTherapists();
+              this.toastr.success(res.msg,"Message")
+            }else{
+              this.toastr.danger(res.msg,"Error")
+            }
+          })
           break;
         default:
           break;

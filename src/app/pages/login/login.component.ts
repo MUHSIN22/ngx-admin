@@ -6,10 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
+  loginData:any = {
+    username: '',
+    password: ''
+  };
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onSubmit = () => {
+    console.log(this.loginData);
+    
   }
 
 }

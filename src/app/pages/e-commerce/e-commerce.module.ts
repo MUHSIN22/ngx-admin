@@ -18,6 +18,7 @@ import { ChartModule } from 'angular2-chartjs';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { ECommerceProgressSectionComponent } from './progress-section/progress-section.component';
+import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
@@ -34,7 +35,8 @@ import { ECommerceProgressSectionComponent } from './progress-section/progress-s
     NgxEchartsModule,
     NgxChartsModule,
     LeafletModule,
-    Ng2SmartTableModule
+    Ng2SmartTableModule,
+    NgbPaginationModule
   ],
   declarations: [
     ECommerceComponent,

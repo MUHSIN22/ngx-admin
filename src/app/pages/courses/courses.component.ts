@@ -68,12 +68,14 @@ export class CoursesComponent implements OnInit {
 
 
   ngOnInit() {
-    this.getTherapists()
+    this.getCourses()
   }
 
-  getTherapists = () => {
-    this.httpService.getTherapists(this.page).subscribe((res:any) => {
+  getCourses = () => {
+    this.httpService.getCourses(this.page).subscribe((res:any) => {
       if(res.status === "ok"){
+        console.log(res);
+        
         this.collectionSize = res.msg.total
         this.source.load(res.msg.courses)
         
@@ -82,8 +84,7 @@ export class CoursesComponent implements OnInit {
   }
 
   onPageChange = (page:any) => {
-    this.getTherapists()
-    
+    this.getCourses()
   }
 
   onCustomAction = (event:any) => {
@@ -92,8 +93,8 @@ export class CoursesComponent implements OnInit {
     if(confirm){
       switch(event.action){
         case "approve":
-          this.httpService.approveTherapists(event.data._id).subscribe((res:any) => {
-            this.getTherapists()
+          this.httpService.approveCourses(event.data._id).subscribe((res:any) => {
+            this.getCourses()
             this.toastr.success(res.msg,"Message")
           })
           break;

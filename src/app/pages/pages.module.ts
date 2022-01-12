@@ -9,6 +9,7 @@ import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { TherapistsModule } from './therapists/therapists.module';
 import { CoursesModule } from './courses/courses.module';
 import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { LoginComponent } from './login/login.component';
     ECommerceModule,
     MiscellaneousModule,
     TherapistsModule,
-    CoursesModule
+    CoursesModule,
+    FormsModule
   ],
   declarations: [
     PagesComponent,

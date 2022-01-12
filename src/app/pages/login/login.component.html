@@ -1,8 +1,10 @@
-<form #form=ngForm class="login">
+<form #login=ngForm (submit)="login.valid && onSubmit()"  class="login">
     <h2>Login to your account</h2>
     <label for="username">Username</label>
-    <input type="text" id="username" name="username">
+    <input type="text" id="username" #username="ngModel" required [(ngModel)]="loginData.username"  name="username">
+    <small class="text-danger" *ngIf="username.touched&&username.errors?.required">Username is required</small>
     <label for="password">Password</label>
-    <input type="password" name="password" id="password">
+    <input type="password" #password="ngModel" required [(ngModel)]="loginData.password" name="password" id="password">
+    <small class="text-danger" *ngIf="password.touched&&password.errors?.required">Username is required</small>
     <input type="submit" value="login" class="btn btn-primary">
 </form>
